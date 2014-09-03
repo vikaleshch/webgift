@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<christmas-gift xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                xmlns="http://example.com/christmas-gift"
+                xsi:schemaLocation="http://example.com/christmas-gift schema.xsd">
+
+    <chocolate id="ch2">
+        <protein>21</protein>
+        <fat>34</fat>
+        <carbohydrate>19</carbohydrate>
+        <kilo-calories>94</kilo-calories>
+        <weight>144</weight>
+        <sugar-content>35</sugar-content>
+        <chocolate-type>white</chocolate-type>
+        <stuffing-type>praline</stuffing-type>
+    </chocolate>
+
+    <caramel id="c1">
+        <protein>12</protein>
+        <fat>15</fat>
+        <carbohydrate>2</carbohydrate>
+        <kilo-calories>78</kilo-calories>
+        <weight>100</weight>
+        <sugar-content>67</sugar-content>
+        <caramel-type>fruit</caramel-type>
+    </caramel>
+
+    <chocolate id="ch1">
+        <protein>20</protein>
+        <fat>30</fat>
+        <carbohydrate>16</carbohydrate>
+        <kilo-calories>18</kilo-calories>
+        <weight>71</weight>
+        <sugar-content>65</sugar-content>
+        <chocolate-type>dark</chocolate-type>
+        <stuffing-type>jelly</stuffing-type>
+    </chocolate>
+
+    <lollipop id="l1">
+        <protein>13</protein>
+        <fat>23</fat>
+        <carbohydrate>23</carbohydrate>
+        <kilo-calories>69</kilo-calories>
+        <weight>103</weight>
+        <sugar-content>95</sugar-content>
+        <flavor>strawberry</flavor>
+    </lollipop>
+
+</christmas-gift>

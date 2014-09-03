@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+        targetNamespace="http://example.com/christmas-gift"
+        xmlns:ns="http://example.com/christmas-gift"
+        elementFormDefault="qualified">
+
+    <element name="candy" type="ns:candy-type"/>
+    <element name="chocolate" type="ns:chocolate-candy-type" substitutionGroup="ns:candy"/>
+    <element name="caramel" type="ns:caramel-candy-type" substitutionGroup="ns:candy"/>
+    <element name="lollipop" type="ns:lollipop-candy-type" substitutionGroup="ns:candy"/>
+
+    <element name="christmas-gift">
+        <complexType>
+            <sequence>
+                <element ref="ns:candy" maxOccurs="unbounded"/>
+            </sequence>
+        </complexType>
+    </element>
+
+    <complexType name="candy-type" abstract="true">
+        <sequence>
+            <element name="protein" type="positiveInteger"/>
+            <element name="fat" type="positiveInteger"/>
+            <element name="carbohydrate" type="positiveInteger"/>
+            <element name="kilo-calories" type="positiveInteger"/>
+            <element name="weight" type="positiveInteger"/>
+            <element name="sugar-content" type="ns:percent"/>
+        </sequence>
+        <attribute name="id" type="ns:id" use="required"/>
+    </complexType>
+    
+    <complexType name="caramel-candy-type">
+        <complexContent>
+            <extension base="ns:candy-type">
+                <sequence>
+                    <element name="caramel-type" type="ns:caramel-enum"/>
+                </sequence>
+            </extension>
+        </complexContent>
+    </complexType>
+
+    <complexType name="chocolate-candy-type">
+        <complexContent>
+            <extension base="ns:candy-type">
+                <sequence>
+                    <element name="chocolate-type" type="ns:chocolate-enum"/>
+                    <element name="stuffing-type" type="ns:stuffing-enum"/>
+                </sequence>
+            </extension>
+        </complexContent>
+    </complexType>
+
+    <complexType name="lollipop-candy-type">
+        <complexContent>
+            <extension base="ns:candy-type">
+                <sequence>
+                    <element name="flavor" type="string"/>
+                </sequence>
+            </extension>
+        </complexContent>
+    </complexType>
+
+    <simpleType name="percent">
+        <restriction base="positiveInteger">
+            <maxExclusive value="100"/>
+        </restriction>
+    </simpleType>
+
+    <simpleType name="id">
+        <restriction base="ID">
+            <pattern value="[(c)(l)(ch)]*[0-9]+"/>
+        </restriction>
+    </simpleType>
+
+    <simpleType name="caramel-enum">
+        <restriction base="string">
+            <enumeration value="fruit"/>
+            <enumeration value="berry"/>
+            <enumeration value="liquor"/>
+            <enumeration value="chocolate"/>
+        </restriction>
+    </simpleType>
+
+    <simpleType name="chocolate-enum">
+        <restriction base="string">
+            <enumeration value="white"/>
+            <enumeration value="milk"/>
+            <enumeration value="dark"/>
+        </restriction>
+    </simpleType>
+
+    <simpleType name="stuffing-enum">
+        <restriction base="string">
+            <enumeration value="praline"/>
+            <enumeration value="fudge"/>
+            <enumeration value="liquor"/>
+            <enumeration value="souffle"/>
+            <enumeration value="jelly"/>
+            <enumeration value="waffle"/>
+        </restriction>
+    </simpleType>
+</schema>
